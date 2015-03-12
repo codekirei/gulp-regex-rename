@@ -28,7 +28,7 @@ module.exports = function(regex, str) {
       typeof str !== 'string'
     ) {
       return handleErr('Incorrect params', this, cb)
-      }
+    }
     try {
       file.path = path.join(
         file.base,

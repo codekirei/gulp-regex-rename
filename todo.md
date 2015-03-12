@@ -1,5 +1,5 @@
 * jshint test
 * clean up package.json
-* bulk up test coverage?
+* write readme
 * push to gh
 * push to npm

@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "mocha",
+    "test": "jshint ./ && jscs ./ && mocha",
     "cover": "istanbul cover _mocha"
   },
   "author": "",
@@ -16,6 +16,7 @@
   "devDependencies": {
     "chai": "^2.1.1",
     "istanbul": "^0.3.7",
+    "jscs": "^1.11.3",
     "mocha": "^2.2.1"
   }
 }
