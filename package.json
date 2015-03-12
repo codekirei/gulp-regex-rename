@@ -1,14 +1,19 @@
 {
   "name": "gulp-regex-rename",
+  "description": "Rename files in gulp pipelines with regex",
   "version": "0.1.0",
-  "description": "",
+  "author": "Jacob Blakely <jacob@codekirei.com>",
+  "license": "MIT",
   "main": "index.js",
+  "keywords": [
+    "gulpplugin",
+    "regex",
+    "rename"
+  ],
   "scripts": {
     "test": "jshint ./ && jscs ./ && mocha",
     "cover": "istanbul cover _mocha"
   },
-  "author": "",
-  "license": "MIT",
   "dependencies": {
     "gulp-util": "^3.0.4",
     "through2": "^0.6.3"
@@ -17,6 +22,7 @@
     "chai": "^2.1.1",
     "istanbul": "^0.3.7",
     "jscs": "^1.11.3",
+    "jshint": "^2.6.3",
     "mocha": "^2.2.1"
   }
 }
