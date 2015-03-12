@@ -4,12 +4,18 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha",
+    "cover": "istanbul cover _mocha"
   },
   "author": "",
   "license": "MIT",
   "dependencies": {
     "gulp-util": "^3.0.4",
     "through2": "^0.6.3"
+  },
+  "devDependencies": {
+    "chai": "^2.1.1",
+    "istanbul": "^0.3.7",
+    "mocha": "^2.2.1",
   }
 }

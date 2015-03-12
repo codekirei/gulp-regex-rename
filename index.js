@@ -15,32 +15,32 @@ var myName = 'gulp-regex-rename'
 // Logic
 ////////////////////////////////////////////////////////////
 module.exports = function(regex, str) {
-  function regexRename(file, unused, cb) {
+  return through.obj(function(file, unused, cb) {
     if (file.isStream()) {
-      return cb(new PluginError(
+      this.emit('error', new PluginError(
         myName,
         'Streaming not supported'
       ))
+      return cb()
     }
-    if (
-      typeof regex !== 'string' ||
+    if ( regex instanceof RegExp === false ||
       typeof str !== 'string'
-    ) { return cb(new PluginError(
-          myName,
-          'Parameters must be strings'
-        ))
+    ) {
+      this.emit('error', new PluginError(
+        myName,
+        'Incorrect params'
+      ))
+      return cb()
       }
-    if (file.isBuffer()) {
-      try {
-        file.path = path.join(
-          file.base,
-          file.relative.replace(regex, str)
-        )
-      } catch(err) {
-        return cb(new PluginError(myName, err))
-      }
+    try {
+      file.path = path.join(
+        file.base,
+        file.relative.replace(regex, str)
+      )
+    } catch(err) {
+      this.emit('error', new PluginError(myName, err))
+      return cb()
     }
-    cb(null, file)
-  }
-  return through.obj(regexRename)
+    return cb(null, file)
+  })
 }

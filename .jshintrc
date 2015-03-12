@@ -4,5 +4,8 @@
 	"eqnull"  : true,
 	"undef"   : true,
 	"asi"     : true,
-	"globals" : {}
+	"globals" : {
+    "it"       : false,
+    "describe" : false
+  }
 }
