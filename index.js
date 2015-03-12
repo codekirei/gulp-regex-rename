@@ -10,6 +10,10 @@ var through = require('through2')
 // Setup
 ////////////////////////////////////////////////////////////
 var myName = 'gulp-regex-rename'
+function handleErr(err, handler, cb) {
+  handler.emit('error', new PluginError(myName, err))
+  return cb()
+}
 
 ////////////////////////////////////////////////////////////
 // Logic
@@ -17,20 +21,13 @@ var myName = 'gulp-regex-rename'
 module.exports = function(regex, str) {
   return through.obj(function(file, unused, cb) {
     if (file.isStream()) {
-      this.emit('error', new PluginError(
-        myName,
-        'Streaming not supported'
-      ))
-      return cb()
+      return handleErr('Streaming not supported', this, cb)
     }
-    if ( regex instanceof RegExp === false ||
+    if (
+      regex instanceof RegExp === false ||
       typeof str !== 'string'
     ) {
-      this.emit('error', new PluginError(
-        myName,
-        'Incorrect params'
-      ))
-      return cb()
+      return handleErr('Incorrect params', this, cb)
       }
     try {
       file.path = path.join(
@@ -38,8 +35,7 @@ module.exports = function(regex, str) {
         file.relative.replace(regex, str)
       )
     } catch(err) {
-      this.emit('error', new PluginError(myName, err))
-      return cb()
+      return handleErr(err, this, cb)
     }
     return cb(null, file)
   })
