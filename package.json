@@ -4,6 +4,7 @@
   "version": "0.1.0",
   "author": "Jacob Blakely <jacob@codekirei.com>",
   "license": "MIT",
+  "repository": "codekirei/gulp-regex-rename",
   "main": "index.js",
   "keywords": [
     "gulpplugin",
