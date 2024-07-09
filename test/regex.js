@@ -3,7 +3,7 @@
 // NPM Modules
 ////////////////////////////////////////////////////////////
 var assert = require('chai').assert
-var File   = require('gulp-util').File
+var Vinyl   = require('vinyl')
 var path   = require('path')
 
 ////////////////////////////////////////////////////////////
@@ -26,7 +26,7 @@ describe('regex', function() {
       assert.equal(file.relative, expected)
       done()
     })
-    stream.write(new File({
+    stream.write(new Vinyl({
       path: filePath,
       base: fileBase
     }))
@@ -40,7 +40,7 @@ describe('regex', function() {
       assert.equal(file.relative, expected)
       done()
     })
-    stream.write(new File({
+    stream.write(new Vinyl({
       path: filePath,
       base: fileBase
     }))

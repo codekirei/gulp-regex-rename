@@ -3,7 +3,7 @@
 // NPM Modules
 ////////////////////////////////////////////////////////////
 var assert = require('chai').assert
-var File   = require('gulp-util').File
+var Vinyl   = require('vinyl')
 var path   = require('path')
 var fs     = require('fs')
 
@@ -22,7 +22,7 @@ describe('errors', function() {
     stream.on('error', function(err) {
       error = err.message
     })
-    var file = new File({
+    var file = new Vinyl({
       // grabs index.js but any file will do
       contents: fs.createReadStream('../')
     })
@@ -37,7 +37,7 @@ describe('errors', function() {
     stream.on('error', function(err) {
       error = err.message
     })
-    stream.write(new File())
+    stream.write(new Vinyl())
     assert.equal(error, 'Incorrect params')
     done()
   })

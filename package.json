@@ -16,8 +16,9 @@
     "cover": "istanbul cover _mocha"
   },
   "dependencies": {
-    "gulp-util": "^3.0.4",
-    "through2": "^0.6.3"
+    "plugin-error": "^2.0.1",
+    "through2": "^0.6.3",
+    "vinyl": "^3.0.0"
   },
   "devDependencies": {
     "chai": "^2.1.1",

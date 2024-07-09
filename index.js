@@ -3,7 +3,7 @@
 // NPM Modules
 ////////////////////////////////////////////////////////////
 var path = require('path')
-var PluginError = require('gulp-util').PluginError
+var PluginError = require('plugin-error')
 var through = require('through2')
 
 ////////////////////////////////////////////////////////////
